@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+{% include 'partial/form_find.html' with button_text='Найти' %}
+<li class="nav-item">
+  <a class="nav-link text-white ms-2" href="">+добавить товар</a>
+</li>
+{% endblock %}
+
+
+{% block content %}
+
+{% if products %}
+<div class="row">
+{% for product in products %}
+<div class="col-md-12 col-xl-3 mb-4">
+    <div class="card p-3 m-2">
+      <div class="card-header p-0 bg-white">
+        <p style="text-align: center"><a href="{% url 'product' product.pk %}"><img style="width:150px" src="{{ product.photo }}" alt="photo"></a></p>
+      </div>
+      <p><a class="text-dark" style="text-decoration: none;" href="{% url 'product' product.pk %}"><h6 class="card-title">{{product.title}}</h6></a></p> 
+      <p class="card-text text-secondary">Цена: {{ product.price }}</p>
+      {% for choice in choices %}
+      {% if choice.0 == product.category %}
+      <p class="card-text text-secondary">{{ choice.1 }}</p>
+      {% endif %}
+      {% endfor%}    
+    </div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+{% if error %}
+<h1>{{ error }}</h1>
+{% else %}
+<p>
+  <h1>В базу данных не добавлено ни одного товара!</h1>
+</p>
+
+{% endif %}
+{% endif %}
+{% endblock %}

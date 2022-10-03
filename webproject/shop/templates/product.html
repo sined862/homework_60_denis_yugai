@@ -1,0 +1,31 @@
+﻿{% extends 'base.html' %}
+
+{% block menu %}
+<li class="nav-item">
+  <a class="nav-link text-white" href="">+добавить товар</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 col-xl-6 mb-4">
+        <div class="card p-3 m-2">
+            <div class="card-header p-0 bg-white">
+                <p><a class="text-dark" style="text-decoration: none;" href="{% url 'product' product.pk %}"><h6 class="card-title">{{product.title}}</h6></a></p>
+                <p style="text-align: center"><img style="width:300px" src="{{ product.photo }}" alt="photo"></p>
+            </div>
+              <p class="card-text text-secondary">Цена: <strong>{{ product.price }}</strong></p>
+              {% for choice in choices %}
+              {% if choice.0 == product.category %}
+              <p class="card-text text-secondary"><strong>{{ choice.1 }}</strong></p>
+              {% endif %}
+              {% endfor%}  
+              <p>{{ product.description }}</p>
+              <p class="card-text text-secondary">Остаток: <strong>{{ product.balance }}</strong></p>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}

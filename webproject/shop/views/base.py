@@ -15,8 +15,7 @@ def index_view(request):
                 'choices': choices
             }
             return render(request, 'index.html', context)
-        products = Product.objects.filter(title=request.GET.get('title'))
-        print(request.GET.get('title'))
+        products = Product.objects.filter(title=request.GET.get('title'), balance__gte = 1)
         error = 'Ни одной записи не найдено'
         context = {
             'products': products,

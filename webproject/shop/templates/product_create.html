@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block menu %}
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Категории
+    </a>
+    <ul class="dropdown-menu">
+      {% for choice in choices %}
+      <li><a class="dropdown-item" href="{% url 'categories' choice.0 %}">{{ choice.1 }}</a></li>
+      {% endfor %}
+    </ul>
+</li>
 {% endblock %}
 
 

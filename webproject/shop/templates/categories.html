@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 
 {% block menu %}
 <li class="nav-item dropdown">
@@ -22,7 +22,11 @@
 
 {% if products %}
 <div class="row">
-  <h2 style="text-align:center" class="m-3">Все товары:</h2>
+{% for choice in choices %}
+{% if choice.0 == cat %}
+<h2 style="text-align:center" class="m-3">{{ choice.1 }}:</h2>
+{% endif %}
+{% endfor %}
 {% for product in products %}
 {% include 'partial/products_display.html' %}
 {% endfor %}
@@ -32,7 +36,7 @@
 <h1>{{ error }}</h1>
 {% else %}
 <p>
-  <h1>В базу данных не добавлено ни одного товара!</h1>
+  <h1>В базу данных не добавлено ни одного товара или остатки товаров этой категории равны нулю!</h1>
 </p>
 
 {% endif %}

@@ -22,10 +22,11 @@
 {% block content %}
 <div class="row">
     <div class="col-md-12 col-xl-6 mb-4">
-        <h1 class="m-3">Создание новой записи: </h1>
+        <h2 class="m-3">Создание новой записи: </h2>
         <form class="m-3" action="{% url 'product_add' %}" method="POST">
             {% include 'partial/form_product.html' with button_text='Создать' %}
         </form>
+        <p class="mt-4 ms-2"><a href="{% url 'index' %}">вернуться на главную</a></p>
     </div>
 </div>
 {% endblock %}

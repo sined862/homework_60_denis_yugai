@@ -37,7 +37,7 @@ class Product(models.Model):
         choices = CategoryChoices.choices,
         null = False,
         blank = False,
-        default = 'other'
+        default = CategoryChoices.OTHER
     )
     balance = models.IntegerField(
         verbose_name = 'Остаток',

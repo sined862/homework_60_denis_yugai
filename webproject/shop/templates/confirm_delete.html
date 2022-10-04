@@ -1,0 +1,26 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+    Product delete
+{% endblock %}
+
+{% block menu %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'product_add' %}">добавить запись</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<div class="card mb-3 mt-4">
+    <div class="card-body">
+      <h2 class="m-5">Вы точно хотите удалить запись "{{ product.title }}"?</h2>  
+      <form action="{% url 'product_del_confirm' product.pk %}" method="post">
+        {% csrf_token %}
+        <p style="text-align: center;">
+            <button type="submit" class="btn btn-danger ms-2 p-3 mt-4">Удалить</button>
+            <a href="{% url 'index' %}" class="btn btn-success ms-2 mt-4 p-3">Отменить</a>
+        </p> 
+      </form>
+    </div>
+</div>
+{% endblock %}

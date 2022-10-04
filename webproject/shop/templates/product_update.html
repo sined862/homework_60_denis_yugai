@@ -1,20 +1,18 @@
-﻿{% extends 'base.html' %}
+﻿{%  extends 'base.html '%}
 
 {% block title %}
-    Создание записи
+    Обновление записи
 {% endblock %}
 
 {% block menu %}
 {% endblock %}
 
-
-
 {% block content %}
 <div class="row">
     <div class="col-md-12 col-xl-6 mb-4">
         <h1 class="m-3">Создание новой записи: </h1>
-        <form class="m-3" action="{% url 'product_add' %}" method="POST">
-            {% include 'partial/form_product.html' with button_text='Создать' %}
+        <form class="m-3" action="{% url 'product_update' product.pk %}" method="POST">
+            {% include 'partial/form_product.html' with button_text='Сохранить' %}
         </form>
     </div>
 </div>

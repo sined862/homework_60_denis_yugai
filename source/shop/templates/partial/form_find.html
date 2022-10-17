@@ -1,8 +1,8 @@
 ﻿{% csrf_token %}
 <form class="d-flex ms-5" role="search" action="" method="get">
-    {{ form.title }}
+    {{ form.search }}
     <button class="btn btn-secondary ms-2" type="submit">{{ button_text }}</button>
 </form>
-{% for error in form.title.errors %}
+{% for error in form.search.errors %}
 <div><p class="text-danger">{{ error }}</p></div>
 {% endfor %}

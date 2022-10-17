@@ -53,3 +53,22 @@ class Product(models.Model):
         blank = False,
         default = 0
     )
+
+    def __str__(self):
+        return self.title
+
+
+class ProductInCart(models.Model):
+    product = models.ForeignKey(
+        to='shop.Product',
+        related_name='products_in',
+        verbose_name='Продукт в корзине',
+        blank=False,
+        null=False,
+        on_delete=models.CASCADE
+    )
+    quantity = models.IntegerField(
+        verbose_name='Количество',
+        blank=False,
+        null=False
+    )

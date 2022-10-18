@@ -1,5 +1,5 @@
 from django.contrib import admin
-from shop.models import Product, Order
+from shop.models import Product, Order, ProductsOrder
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'category', 'balance', 'price')
@@ -15,3 +15,10 @@ class OrdersAdmin(admin.ModelAdmin):
     search_fields = ('name', 'phone', 'address')
 
 admin.site.register(Order, OrdersAdmin)
+
+
+class ProductsOrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'order', 'product', 'quantity')
+    list_display_links = ('id', 'order')
+
+admin.site.register(ProductsOrder, ProductsOrderAdmin)

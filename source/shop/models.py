@@ -77,3 +77,48 @@ class ProductInCart(models.Model):
 
     def __str__(self):
         return str(self.quantity)
+
+
+class Order(models.Model):
+    products = models.ManyToManyField(
+        to='shop.Product',
+        related_name='products'
+    )
+    name = models.CharField(
+        verbose_name='Имя пользователя',
+        max_length=25,
+        null=False,
+        blank=False
+    )
+    phone = models.CharField(
+        verbose_name='Телефон пользователя',
+        max_length=15,
+        null=False,
+        blank=False
+    )
+    address = models.CharField(
+        verbose_name='Адрес пользователя',
+        max_length=50,
+        null=False,
+        blank=False
+    )
+
+
+class ProductsOrder(models.Model):
+    order = models.ForeignKey(
+        to='shop.Order',
+        on_delete=models.CASCADE,
+        verbose_name='Заказ',
+        related_name='order_products'
+    )
+    product = models.ForeignKey(
+        to='shop.Product',
+        on_delete=models.CASCADE,
+        verbose_name='Товар',
+        related_name='product_orders'
+    )
+    quantity = models.IntegerField(
+        verbose_name='Количество',
+        null = False,
+        blank = False,
+    )

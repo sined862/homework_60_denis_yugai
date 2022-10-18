@@ -63,7 +63,8 @@
 <hr>
 <div class="ms-3 mb-2">Общая сумма: <strong>{{ total }}</strong></div>
   </div>
- 
-
+<form class="m-3" action="{% url 'cart' %}" method="POST">
+  {% include 'partial/form_order.html' with button_text='Заказать' %}
+</form>
   
 {% endblock %}

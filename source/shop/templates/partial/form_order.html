@@ -1,0 +1,31 @@
+﻿{% csrf_token %}
+
+<div class="input-group mt-4 mb-4">
+    <span class="input-group-text" id="inputGroup-sizing-default">{{ form.name.label }}: </span>
+    {{ form.name }}
+
+</div>
+{% for error in form.title.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+
+
+<div class="input-group mt-4 mb-4">
+    <span class="input-group-text" id="inputGroup-sizing-default">{{ form.phone.label }}: </span>
+    {{ form.phone }}
+
+</div>
+{% for error in form.balance.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+
+<div class="input-group mt-4 mb-4">
+    <span class="input-group-text" id="inputGroup-sizing-default">{{ form.address.label }}: </span>
+    {{ form.address }}
+
+</div>
+{% for error in form.address.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+
+<button type="submit" class="btn btn-secondary ms-2 ps-3 pe-3 mt-4">{{ button_text }}</button>

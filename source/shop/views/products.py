@@ -1,6 +1,6 @@
 ﻿from django.shortcuts import redirect, render, get_object_or_404
-from shop.models import Product, CategoryChoices, ProductInCart
-from shop.forms import ProductForm, SearchForm
+from shop.models import Product, CategoryChoices, ProductInCart, Order, ProductsOrder
+from shop.forms import ProductForm, SearchForm, OrderForm
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, View
 from django.urls import reverse, reverse_lazy
 
@@ -58,16 +58,39 @@ def to_cart(request, pk):
             return redirect('index')
     return redirect('index')
 
-def cart(request):
-    products = ProductInCart.objects.all()  
-    total = 0
-    for product in products:
-        total += product.product.price * product.quantity
-    context = {
-        'products': products,
-        'total': total
-    }
-    return render(request, 'cart.html', context=context)
+
+class CreateOrderView(View):
+    products = ProductInCart.objects.all()
+    def total_price(self):
+        total = 0
+        for product in self.products:
+            total += product.product.price * product.quantity 
+        return total
+
+    def get(self, request, *args, **kwargs):
+        form = OrderForm()
+        context = {
+            'form': form,
+            'products': self.products,
+            'total': self.total_price()
+            }
+        return render(request, 'cart.html', context=context)
+
+    def post(self, request, *args, **kwargs):
+        form = OrderForm(request.POST)
+        if not form.is_valid():
+            return render(request, 'cart.html', context = {
+            'form': form,
+            'products': self.products,
+            'total': self.total
+            })
+        order = Order.objects.create(**form.cleaned_data)
+        order_id = Order.objects.last().id
+        print(order_id)
+        for item in self.products:
+            ProductsOrder.objects.create(quantity=item.quantity, order_id=order_id, product_id=item.product.id)
+        self.products.delete()
+        return redirect('index')
 
 class ProductDelInCart(DeleteView):
     template_name = 'cart.html'

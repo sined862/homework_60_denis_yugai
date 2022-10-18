@@ -1,6 +1,6 @@
 ﻿from django import forms
-from django.forms import ValidationError, widgets
-from shop.models import CategoryChoices, Product
+from django.forms import ValidationError
+from shop.models import CategoryChoices, Product, Order 
 
 
 def balance_length_validator(number):
@@ -30,3 +30,9 @@ class ProductForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=100, required=False, label='Найти')
+
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ('name', 'phone', 'address')

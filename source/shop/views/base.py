@@ -11,8 +11,7 @@ class IndexView(ListView):
     template_name = 'index.html'
     model = Product
     queryset = Product.objects.filter(balance__gte = 1)
-    count = ProductInCart.objects.aggregate(sum=Sum('quantity'))
-    extra_context = {'choices': CategoryChoices.choices, 'count': count}
+    extra_context = {'choices': CategoryChoices.choices}
     context_object_name = 'products'
     ordering = ('category', 'title')
     paginate_by = 4

@@ -11,6 +11,8 @@
       {% if choice.0 == product.category %}
       <p class="card-text text-secondary">{{ choice.1 }}</p>
       {% endif %}
-      {% endfor%}    
+      {% endfor%} 
+      <p><a href="{% url 'to_cart' product.pk %}">добавить в корзину</a></p>   
     </div>
+    
 </div>

@@ -1,16 +1,18 @@
 ﻿from django.shortcuts import render
-from shop.models import Product, CategoryChoices
+from shop.models import Product, CategoryChoices, ProductInCart
 from shop.forms import SearchForm
 from django.views.generic import ListView
 from django.db.models import Q
 from urllib.parse import urlencode
+from django.db.models import Sum
 
 
 class IndexView(ListView):
     template_name = 'index.html'
     model = Product
     queryset = Product.objects.filter(balance__gte = 1)
-    extra_context = {'choices': CategoryChoices.choices}
+    count = ProductInCart.objects.aggregate(sum=Sum('quantity'))
+    extra_context = {'choices': CategoryChoices.choices, 'count': count}
     context_object_name = 'products'
     ordering = ('category', 'title')
     paginate_by = 4

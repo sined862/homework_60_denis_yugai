@@ -1,5 +1,5 @@
 ﻿from django.shortcuts import redirect, render, get_object_or_404
-from shop.models import Product, CategoryChoices
+from shop.models import Product, CategoryChoices, ProductInCart
 from shop.forms import ProductForm, SearchForm
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, View
 from django.urls import reverse, reverse_lazy
@@ -39,11 +39,53 @@ class ProductDelView(DeleteView):
     def get_success_url(self):
         return reverse('product_del', kwargs={'pk': self.object.pk})
 
+def to_cart(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    balance = product.balance
+    if balance > 0:
+        if ProductInCart.objects.filter(product_id=pk).exists():
+            product_in = ProductInCart.objects.get(product_id=pk)
+            quantity = product_in.quantity
+            if quantity < balance:
+                quantity += 1 
+                product_in.quantity = quantity
+                product_in.save()
+            context = {'quantity': quantity}
+            return redirect('index')
+        else:
+            context = {'quantity': 'товара в корзине нет'}
+            ProductInCart.objects.create(product_id=pk, quantity=1)
+            return redirect('index')
+    return redirect('index')
+
+def cart(request):
+    products = ProductInCart.objects.all()  
+    total = 0
+    for product in products:
+        total += product.product.price * product.quantity
+    context = {
+        'products': products,
+        'total': total
+    }
+    return render(request, 'cart.html', context=context)
+
+class ProductDelInCart(DeleteView):
+    template_name = 'cart.html'
+    model = ProductInCart
+    success_url = reverse_lazy('cart')
+    confirm_deletion = False
+
+
+def del_cart_view(request, pk):
+    product = get_object_or_404(ProductInCart, pk=pk)
+    product.delete()
+    return redirect('cart')
 
 class ProductDelConfirmView(DeleteView):
     template_name = 'confirm_delete.html'
     model = Product
     success_url = reverse_lazy('index')
+    
 
 
 def del_confirm_view(request, pk):

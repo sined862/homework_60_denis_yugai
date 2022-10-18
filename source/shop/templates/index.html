@@ -15,6 +15,9 @@
   <a class="nav-link text-white ms-2" href="{% url 'product_add' %}">+добавить товар</a>
 </li>
 {% include 'partial/form_find.html' with button_text='Найти' %}
+<li class="nav-item">
+  <a class="nav-link text-white ms-2" href="{% url 'cart' %}"><strong>КОРЗИНА({{ count.sum }})</strong></a>
+</li>
 {% endblock %}
 
 

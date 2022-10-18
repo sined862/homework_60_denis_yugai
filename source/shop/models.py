@@ -54,6 +54,8 @@ class Product(models.Model):
         default = 0
     )
 
+    
+
     def __str__(self):
         return self.title
 
@@ -72,3 +74,6 @@ class ProductInCart(models.Model):
         blank=False,
         null=False
     )
+
+    def __str__(self):
+        return str(self.quantity)

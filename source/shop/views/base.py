@@ -14,7 +14,7 @@ class IndexView(ListView):
     extra_context = {'choices': CategoryChoices.choices}
     context_object_name = 'products'
     ordering = ('category', 'title')
-    paginate_by = 4
+    paginate_by = 8
     paginate_orphans = 1
 
     def get(self, request, *args, **kwargs):
@@ -39,7 +39,9 @@ class IndexView(ListView):
 
     def get_context_data(self, object_list=None, **kwargs):
         context = super(IndexView, self).get_context_data(object_list=object_list, **kwargs)
+        count = ProductInCart.objects.aggregate(sum=Sum('quantity'))
         context['form'] = self.form
+        context['count'] = count
         if self.search_value:
             context['query'] = urlencode({'search': self.search_value})
         return context

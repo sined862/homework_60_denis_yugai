@@ -9,11 +9,13 @@
       {% for choice in choices %}
       <li><a class="dropdown-item" href="{% url 'categories' choice.0 %}">{{ choice.1 }}</a></li>
       {% endfor %}
-    </ul>
+    </ul>   
 </li>
-
 <li class="nav-item">
-  <a class="nav-link text-white" href="">+добавить товар</a>
+  <a class="nav-link text-white" href="{% url 'product_add' %}">+добавить товар</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link text-white ms-2" href="{% url 'cart' %}"><strong>КОРЗИНА (товаров: {{ count.sum }})</strong></a>
 </li>
 {% endblock %}
 

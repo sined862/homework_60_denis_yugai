@@ -7,7 +7,7 @@
     "description": "Процессор: Intel Core i5 / Модель процессора: 11400H / Частота процессора, ГГц: 2.7 / Объем оперативной памяти, ГБ: 8 / Жесткий диск: HDD нет / Твердотельный накопитель: 512 ГБ SSD / Интегрированная в процессор графика: Intel UHD Graphics / Модель дискретной видеокарты: GeForce RTX 3050 / Диагональ экрана, дюйм: 15.6 / Разрешение экрана: 1920 x 1080 Full HD / USB Type-C Power Delivery: Нет / Операционная система: Отсутствует / Вес, кг: 2.2",
     "photo": "https://object.pscloud.io/cms/cms/Photo/img_0_62_2521_0_1.jpg",
     "category": "noutbook",
-    "balance": 10,
+    "balance": 4,
     "price": "535000.00"
   }
 },
@@ -19,7 +19,7 @@
     "description": "Процессор: Intel Core i7\r\nМодель процессора: 12800H\r\nЧастота процессора, ГГц: 2.4\r\nОбъем оперативной памяти, ГБ: 16\r\nКонфигурация оперативной памяти: 2 х 8 ГБ\r\nЖесткий диск: HDD нет\r\nТвердотельный накопитель: 512 ГБ SSD\r\nИнтегрированная в процессор графика: Intel Iris Xe Graphics\r\nДиагональ экрана, дюйм: 15.6\r\nРазрешение экрана: 1920 x 1080 Full HD\r\nUSB Type-C Power Delivery: Да",
     "photo": "https://object.pscloud.io/cms/cms/Photo/img_0_62_296_0.jpg",
     "category": "noutbook",
-    "balance": 5,
+    "balance": 3,
     "price": "800000.00"
   }
 },
@@ -67,7 +67,7 @@
     "description": "Размер экрана, дюйм: 6.5\r\nРазрешение экрана: 1600 x 720 [20:9]\r\nТип матрицы: PLS\r\nОбъем оперативной памяти: 3 ГБ\r\nОбъем встроенной памяти: 32 ГБ\r\nМодель процессора: SC9863A\r\nЧастота процессора: 1.6 ГГц\r\nОсновная камера, Мп: 48 + 2\r\nФронтальная камера, Мп: 5\r\nБеспроводные интерфейсы: Wi-Fi, Bluetooth\r\nЕмкость аккумулятора: 5000 мАч",
     "photo": "https://tgrad.kz/upload/iblock/a19/a1960dd9979cab3805b1eee64e786712.webp",
     "category": "smartphone",
-    "balance": 50,
+    "balance": 48,
     "price": "60000.00"
   }
 },
@@ -79,8 +79,384 @@
     "description": "Размер экрана, дюйм: 6.1\r\nРазрешение экрана: 2532 x 1170\r\nТип матрицы: Super Retina XDR, OLED\r\nОбъем встроенной памяти: 256 ГБ\r\nМодель процессора: A15 Bionic\r\nОсновная камера, Мп: 12 + 12 + 12\r\nФронтальная камера, Мп: 12\r\nБеспроводные интерфейсы: Wi-Fi, Bluetooth, NFC",
     "photo": "https://static.shop.kz/upload/resize_cache/iblock/660/450_450_1/163456_01.jpg",
     "category": "smartphone",
-    "balance": 20,
+    "balance": 17,
     "price": "650000.00"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 8,
+  "fields": {
+    "title": "Телевизор Sony",
+    "description": "Телевизор SonyТелевизор SonyТелевизор SonyТелевизор Sony",
+    "photo": "https://static.shop.kz/upload/resize_cache/iblock/1dd/450_450_1/156393_1.jpg",
+    "category": "tv",
+    "balance": 20,
+    "price": "250000.00"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 10,
+  "fields": {
+    "title": "xZ",
+    "description": "ASas",
+    "photo": "dfgdfg",
+    "category": "smartphone",
+    "balance": -10,
+    "price": "200000.00"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 12,
+  "fields": {
+    "title": "Процессор Intel Core i5",
+    "description": "Тип процессора: Core i5\r\nСокет: LGA1700\r\nОбщее количество ядер: 6\r\nКоличество потоков: 12\r\nТактовая частота, ГГц: 2.5\r\nМикроархитектура: Alder Lake\r\nОбъем кэша L3: 18 Мб\r\nИнтегрированная графическая система: Отсутствует\r\nТехпроцесс: 10 нм\r\nРасчетная мощность (TDP): 65 Вт",
+    "photo": "https://static.shop.kz/upload/resize_cache/iblock/48e/450_450_1/160157x1.jpg",
+    "category": "other",
+    "balance": 5,
+    "price": "100000.00"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 13,
+  "fields": {
+    "title": "Смартфон Xiaomi",
+    "description": "Размер экрана, дюйм: 6.71\r\nРазрешение экрана: 1650 x 720 [20.6:9]\r\nОбъем оперативной памяти: 4 ГБ\r\nОбъем встроенной памяти: 128 ГБ\r\nМодель процессора: Snapdragon 680\r\nЧастота процессора: 2.4 ГГц\r\nОсновная камера, Мп: 50 + 2\r\nФронтальная камера, Мп: 5\r\nБеспроводные интерфейсы: Wi-Fi, Bluetooth\r\nЕмкость аккумулятора: 5000 мАч",
+    "photo": "https://static.shop.kz/upload/resize_cache/iblock/bd4/450_450_1/161335x1.jpg",
+    "category": "smartphone",
+    "balance": 50,
+    "price": "85000.00"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 14,
+  "fields": {
+    "title": "Смартфон vivo V25",
+    "description": "Размер экрана, дюйм: 6.44\r\nРазрешение экрана: 2404 x 1080 [20:9]\r\nТип матрицы: AMOLED\r\nОбъем оперативной памяти: 8 ГБ\r\nОбъем встроенной памяти: 256 ГБ\r\nМодель процессора: Dimensity 900\r\nЧастота процессора: 2.4 ГГц\r\nОсновная камера, Мп: 64 + 8 + 2\r\nФронтальная камера, Мп: 50\r\nБеспроводные интерфейсы: Wi-Fi, Bluetooth, NFC\r\nЕмкость аккумулятора: 4500 мАч",
+    "photo": "https://static.shop.kz/upload/resize_cache/iblock/660/450_450_1/163456_01.jpg",
+    "category": "smartphone",
+    "balance": 5,
+    "price": "77000.00"
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 1,
+  "fields": {
+    "name": "Den",
+    "phone": "123123",
+    "address": "asdsad",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 2,
+  "fields": {
+    "name": "asd",
+    "phone": "123123",
+    "address": "asdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 3,
+  "fields": {
+    "name": "asd",
+    "phone": "123123",
+    "address": "asdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 4,
+  "fields": {
+    "name": "asdasd",
+    "phone": "123",
+    "address": "asdasdsad",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 5,
+  "fields": {
+    "name": "Денис",
+    "phone": "12312312",
+    "address": "фяывфывфыв",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 6,
+  "fields": {
+    "name": "Masha",
+    "phone": "123123",
+    "address": "asdsadasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 7,
+  "fields": {
+    "name": "Moon",
+    "phone": "123213",
+    "address": "asdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 8,
+  "fields": {
+    "name": "Moon",
+    "phone": "123213",
+    "address": "asdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 9,
+  "fields": {
+    "name": "Moon",
+    "phone": "123213",
+    "address": "asdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 10,
+  "fields": {
+    "name": "Moon",
+    "phone": "23234",
+    "address": "asdasdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 11,
+  "fields": {
+    "name": "asdasd",
+    "phone": "asdasd",
+    "address": "asdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 12,
+  "fields": {
+    "name": "Moon",
+    "phone": "asdasd",
+    "address": "asdasdasd",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 13,
+  "fields": {
+    "name": "asda",
+    "phone": "asdasd",
+    "address": "asdadsa",
+    "created_at": "2022-10-18T12:29:00.822Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 14,
+  "fields": {
+    "name": "Павел",
+    "phone": "+7013777000",
+    "address": "Панфилова",
+    "created_at": "2022-10-18T12:33:10.040Z",
+    "products": []
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 5,
+  "fields": {
+    "order": 6,
+    "product": 1,
+    "quantity": 10
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 6,
+  "fields": {
+    "order": 6,
+    "product": 2,
+    "quantity": 3
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 7,
+  "fields": {
+    "order": 6,
+    "product": 7,
+    "quantity": 3
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 8,
+  "fields": {
+    "order": 6,
+    "product": 6,
+    "quantity": 3
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 9,
+  "fields": {
+    "order": 7,
+    "product": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 10,
+  "fields": {
+    "order": 8,
+    "product": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 11,
+  "fields": {
+    "order": 9,
+    "product": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 12,
+  "fields": {
+    "order": 10,
+    "product": 1,
+    "quantity": 4
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 13,
+  "fields": {
+    "order": 11,
+    "product": 2,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 14,
+  "fields": {
+    "order": 11,
+    "product": 7,
+    "quantity": 2
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 15,
+  "fields": {
+    "order": 11,
+    "product": 6,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 16,
+  "fields": {
+    "order": 12,
+    "product": 12,
+    "quantity": 6
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 17,
+  "fields": {
+    "order": 13,
+    "product": 12,
+    "quantity": 3
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 18,
+  "fields": {
+    "order": 1,
+    "product": 1,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 19,
+  "fields": {
+    "order": 1,
+    "product": 2,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 20,
+  "fields": {
+    "order": 1,
+    "product": 12,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 21,
+  "fields": {
+    "order": 1,
+    "product": 7,
+    "quantity": 1
+  }
+},
+{
+  "model": "shop.productsorder",
+  "pk": 22,
+  "fields": {
+    "order": 1,
+    "product": 6,
+    "quantity": 1
   }
 },
 {
@@ -336,11 +712,119 @@
   }
 },
 {
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add product in cart",
+    "content_type": 8,
+    "codename": "add_productincart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change product in cart",
+    "content_type": 8,
+    "codename": "change_productincart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete product in cart",
+    "content_type": 8,
+    "codename": "delete_productincart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view product in cart",
+    "content_type": 8,
+    "codename": "view_productincart"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add products order",
+    "content_type": 9,
+    "codename": "add_productsorder"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change products order",
+    "content_type": 9,
+    "codename": "change_productsorder"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete products order",
+    "content_type": 9,
+    "codename": "delete_productsorder"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view products order",
+    "content_type": 9,
+    "codename": "view_productsorder"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add order",
+    "content_type": 10,
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change order",
+    "content_type": 10,
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete order",
+    "content_type": 10,
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view order",
+    "content_type": 10,
+    "codename": "view_order"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$390000$p0CeiU82wkxdV1hc4P2a9Q$Xa1Y2oNaobQ546BZLKuoP2k2RFxV6MExqKU30DknRig=",
-    "last_login": "2022-10-03T08:17:20.444Z",
+    "last_login": "2022-10-17T11:02:25.525Z",
     "is_superuser": true,
     "username": "root",
     "first_name": "",

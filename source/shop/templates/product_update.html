@@ -16,7 +16,10 @@
     </ul>
 </li>
 <li class="nav-item">
-    <a class="nav-link text-white" href="">+добавить товар</a>
+    <a class="nav-link text-white" href="{% url 'product_add' %}">+добавить товар</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-white ms-2" href="{% url 'cart' %}"><strong>КОРЗИНА (товаров: {{ count.sum }})</strong></a>
 </li>
 {% endblock %}
 

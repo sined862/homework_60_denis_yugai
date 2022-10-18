@@ -102,6 +102,19 @@ class Order(models.Model):
         null=False,
         blank=False
     )
+    created_at = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Время создания',
+        blank=True
+    )
+
+    def __str__(self):
+        return f'Заказ - {self.name}'
+
+    class Meta:
+        verbose_name = 'Заказ'
+        verbose_name_plural = 'Заказы'
+        ordering = ['-created_at']
 
 
 class ProductsOrder(models.Model):
@@ -122,3 +135,4 @@ class ProductsOrder(models.Model):
         null = False,
         blank = False,
     )
+    

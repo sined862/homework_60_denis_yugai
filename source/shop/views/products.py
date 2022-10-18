@@ -3,6 +3,7 @@ from shop.models import Product, CategoryChoices, ProductInCart, Order, Products
 from shop.forms import ProductForm, SearchForm, OrderForm
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView, View
 from django.urls import reverse, reverse_lazy
+from django.db.models import Sum
 
 
 
@@ -10,6 +11,12 @@ class ProductView(DetailView):
     template_name = 'product.html'
     model = Product
     extra_context = {'choices': CategoryChoices.choices}
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductView, self).get_context_data(**kwargs)
+        count = ProductInCart.objects.aggregate(sum=Sum('quantity'))
+        context['count'] = count
+        return context
 
 
 class ProductAddView(CreateView):
@@ -21,6 +28,12 @@ class ProductAddView(CreateView):
     def get_success_url(self):
         return reverse('product', kwargs={'pk': self.object.pk})
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductAddView, self).get_context_data(**kwargs)
+        count = ProductInCart.objects.aggregate(sum=Sum('quantity')) 
+        context['count'] = count
+        return context
+
 
 class ProductUpdateView(UpdateView):
     template_name = 'product_update.html'
@@ -31,6 +44,12 @@ class ProductUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('product', kwargs={'pk': self.object.pk})
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductUpdateView, self).get_context_data(**kwargs)
+        count = ProductInCart.objects.aggregate(sum=Sum('quantity')) 
+        context['count'] = count
+        return context
+
 
 class ProductDelView(DeleteView):
     template_name = 'confirm_delete.html'
@@ -39,57 +58,63 @@ class ProductDelView(DeleteView):
     def get_success_url(self):
         return reverse('product_del', kwargs={'pk': self.object.pk})
 
-def to_cart(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    balance = product.balance
-    if balance > 0:
-        if ProductInCart.objects.filter(product_id=pk).exists():
-            product_in = ProductInCart.objects.get(product_id=pk)
-            quantity = product_in.quantity
-            if quantity < balance:
-                quantity += 1 
-                product_in.quantity = quantity
-                product_in.save()
-            context = {'quantity': quantity}
-            return redirect('index')
-        else:
-            context = {'quantity': 'товара в корзине нет'}
-            ProductInCart.objects.create(product_id=pk, quantity=1)
-            return redirect('index')
-    return redirect('index')
+
+class ProductAddToCart(View):
+    def get(self, request, *args, **kwargs):
+        product = get_object_or_404(Product, pk=kwargs['pk'])
+        balance = product.balance
+        if balance > 0:
+            if ProductInCart.objects.filter(product_id=kwargs['pk']).exists():
+                product_in_cart = get_object_or_404(ProductInCart, product_id=kwargs['pk'])
+                quantity = product_in_cart.quantity
+                if quantity < balance:
+                    quantity += 1
+                    product_in_cart.quantity = quantity
+                    product_in_cart.save()
+                    return redirect('index')
+                return redirect('index')
+            else:
+                ProductInCart.objects.create(product_id=kwargs['pk'], quantity=1)
+                return redirect('index')
+        return redirect('index')
 
 
 class CreateOrderView(View):
-    products = ProductInCart.objects.all()
     def total_price(self):
+        products = ProductInCart.objects.all()
         total = 0
-        for product in self.products:
+        for product in products:
             total += product.product.price * product.quantity 
         return total
 
     def get(self, request, *args, **kwargs):
+        products = ProductInCart.objects.all()
         form = OrderForm()
         context = {
             'form': form,
-            'products': self.products,
+            'products': products,
             'total': self.total_price()
             }
         return render(request, 'cart.html', context=context)
 
     def post(self, request, *args, **kwargs):
+        products = ProductInCart.objects.all()
         form = OrderForm(request.POST)
         if not form.is_valid():
             return render(request, 'cart.html', context = {
             'form': form,
-            'products': self.products,
-            'total': self.total
+            'products': products,
+            'total': self.total_price()
             })
         order = Order.objects.create(**form.cleaned_data)
         order_id = Order.objects.last().id
         print(order_id)
-        for item in self.products:
+        for item in products:
             ProductsOrder.objects.create(quantity=item.quantity, order_id=order_id, product_id=item.product.id)
-        self.products.delete()
+            product = get_object_or_404(Product, pk=item.product_id)
+            product.balance -= item.quantity
+            product.save()
+        products.delete()
         return redirect('index')
 
 class ProductDelInCart(DeleteView):
